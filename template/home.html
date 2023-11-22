@@ -1,0 +1,32 @@
+
+{%extends 'layout.html'%}
+
+{%block style%}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">{%endblock%}
+
+{%block body%}
+
+<form method="post" action="/analisis">
+    <label for="origin">ORIGEN:</label>
+    <select id="origin" name="origin">
+        {% for location in locations %}
+            <option value="{{ location }}"></option>
+        {% endfor %}
+    </select>
+
+    <br>
+    <br>
+
+    <label for="destination">Opción 2:</label>
+    <select id="destination" name="destination">
+        {% for location in locations %}
+            <option value="{{ location }}"></option>
+        {% endfor %}
+    </select>
+
+    <br>
+    <br>
+
+    <input type="submit" value="analisis">
+</form>
+
+{%endblock%}
